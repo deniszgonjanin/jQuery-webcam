@@ -76,7 +76,7 @@ class JSCam {
 			}
 
 			camera.setQuality(0, 100);
-			camera.setMode(640, 480, 24, false);
+			camera.setMode(Stage.width, Stage.height, 24, false);
 
 			ExternalInterface.addCallback("capture", null, capture);
 
@@ -176,10 +176,10 @@ class JSCam {
 
 			if ("callback" == mode) {
 
-				for (var i = 0; i < 480; ++i) {
+				for (var i = 0; i < Stage.height; ++i) {
 
 					var row = "";
-					for (var j=0; j < 640; ++j) {
+					for (var j=0; j < Stage.width; ++j) {
 						row+= buffer.getPixel(j, i);
 						row+= ";";
 					}
@@ -233,10 +233,10 @@ class JSCam {
 		}
 
 
-		for (var i = 0; i < 480; ++i) {
+		for (var i = 0; i < Stage.height; ++i) {
 
 			var row = "";
-			for (var j=0; j < 640; ++j) {
+			for (var j=0; j < Stage.width; ++j) {
 				row+= buffer.getPixel(j, i);
 				row+= ";";
 			}
